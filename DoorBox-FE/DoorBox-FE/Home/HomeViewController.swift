@@ -9,8 +9,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    private lazy var homeView = HomeView().then { view in
+        view.backgroundColor = .white
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view = homeView
     }
 
 
