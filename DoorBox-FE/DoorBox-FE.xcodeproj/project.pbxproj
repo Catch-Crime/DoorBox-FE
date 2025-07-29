@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		978CB3AB2E35B1FA00423538 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 978CB3AA2E35B1FA00423538 /* Alamofire */; };
+		978CB3AE2E35B28F00423538 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 978CB3AD2E35B28F00423538 /* Then */; };
+		978CB3B12E35B33F00423538 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 978CB3B02E35B33F00423538 /* FSCalendar */; };
+		978CB55D2E35BCDB00423538 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 978CB55C2E35BCDB00423538 /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		97207FAE2E333D6C005ED1B9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +72,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				978CB3AB2E35B1FA00423538 /* Alamofire in Frameworks */,
+				978CB55D2E35BCDB00423538 /* SnapKit in Frameworks */,
+				978CB3B12E35B33F00423538 /* FSCalendar in Frameworks */,
+				978CB3AE2E35B28F00423538 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +136,10 @@
 			);
 			name = "DoorBox-FE";
 			packageProductDependencies = (
+				978CB3AA2E35B1FA00423538 /* Alamofire */,
+				978CB3AD2E35B28F00423538 /* Then */,
+				978CB3B02E35B33F00423538 /* FSCalendar */,
+				978CB55C2E35BCDB00423538 /* SnapKit */,
 			);
 			productName = "DoorBox-FE";
 			productReference = 97207F972E333D6B005ED1B9 /* DoorBox-FE.app */;
@@ -208,6 +223,12 @@
 			);
 			mainGroup = 97207F8E2E333D6B005ED1B9;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				978CB3A92E35B1FA00423538 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				978CB3AC2E35B28F00423538 /* XCRemoteSwiftPackageReference "Then" */,
+				978CB3AF2E35B33F00423538 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				978CB55B2E35BCDB00423538 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 97207F982E333D6B005ED1B9 /* Products */;
 			projectDirPath = "";
@@ -561,6 +582,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		978CB3A92E35B1FA00423538 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+		978CB3AC2E35B28F00423538 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		978CB3AF2E35B33F00423538 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.4;
+			};
+		};
+		978CB55B2E35BCDB00423538 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		978CB3AA2E35B1FA00423538 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 978CB3A92E35B1FA00423538 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		978CB3AD2E35B28F00423538 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 978CB3AC2E35B28F00423538 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		978CB3B02E35B33F00423538 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 978CB3AF2E35B33F00423538 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		978CB55C2E35BCDB00423538 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 978CB55B2E35BCDB00423538 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 97207F8F2E333D6B005ED1B9 /* Project object */;
 }

@@ -25,11 +25,17 @@ extension UIFont {
     @nonobjc class var body: UIFont {
         return UIFont(name: FontName.pretendard_light.rawValue, size: 14) ?? UIFont.systemFont(ofSize: 14)
     }
+    @nonobjc class var body2: UIFont {
+        return UIFont(name: FontName.pretendard_medium.rawValue, size: 14) ?? UIFont.systemFont(ofSize: 14)
+    }
     @nonobjc class var headline: UIFont {
-        return UIFont(name: FontName.pretendard_regular.rawValue, size: 20) ?? UIFont.systemFont(ofSize: 20)
+        return UIFont(name: FontName.pretendard_medium.rawValue, size: 18) ?? UIFont.systemFont(ofSize: 18)
     }
     @nonobjc class var description: UIFont {
         return UIFont(name: FontName.pretendard_light.rawValue, size: 12) ?? UIFont.systemFont(ofSize: 12)
+    }
+    @nonobjc class var description2: UIFont {
+        return UIFont(name: FontName.pretendard_bold.rawValue, size: 10) ?? UIFont.systemFont(ofSize: 10)
     }
     
     
