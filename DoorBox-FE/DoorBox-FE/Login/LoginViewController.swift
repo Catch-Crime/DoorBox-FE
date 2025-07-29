@@ -11,4 +11,12 @@ import Then
 
 class LoginViewController: UIViewController {
     
+    private lazy var loginView = LoginView().then { view in
+        view.backgroundColor = .white
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view = loginView
+    }
 }
