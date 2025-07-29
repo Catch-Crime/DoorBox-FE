@@ -78,7 +78,7 @@ class HomeView: UIView {
     }
     
     lazy var dateLabel = UILabel().then { label in
-        label.text = "12 / 12"
+        label.text = formattedDateString()
         label.textColor = .blue02
         label.font = .headline
         label.textAlignment = .center
@@ -99,11 +99,16 @@ class HomeView: UIView {
     }
     
     lazy var photosTableView = UITableView().then { tableView in
-        tableView.backgroundColor = .grey01
+        tableView.backgroundColor = .clear
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotosTableViewCell")
-        tableView.isScrollEnabled = true
+        tableView.separatorStyle = .none
     }
     
+    func formattedDateString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM / dd"
+        return formatter.string(from: Date())
+    }
     
     private func addComponents() {
         addSubview(topView)
@@ -182,8 +187,8 @@ class HomeView: UIView {
         
         addSubview(photosTableView)
         photosTableView.snp.makeConstraints { make in
-            make.top.equalTo(middleLineView.snp.bottom).offset(30)
-            make.leading.trailing.equalToSuperview().inset(30)
+            make.top.equalTo(middleLineView.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().inset(30)
         }
         

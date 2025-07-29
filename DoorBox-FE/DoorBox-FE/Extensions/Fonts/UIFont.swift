@@ -34,6 +34,9 @@ extension UIFont {
     @nonobjc class var description: UIFont {
         return UIFont(name: FontName.pretendard_light.rawValue, size: 12) ?? UIFont.systemFont(ofSize: 12)
     }
+    @nonobjc class var description2: UIFont {
+        return UIFont(name: FontName.pretendard_bold.rawValue, size: 10) ?? UIFont.systemFont(ofSize: 10)
+    }
     
     
 }
