@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		975B50452E39E59C00E9AD8D /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 975B50442E39E59C00E9AD8D /* KakaoSDK */; };
 		978CB3AB2E35B1FA00423538 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 978CB3AA2E35B1FA00423538 /* Alamofire */; };
 		978CB3AE2E35B28F00423538 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 978CB3AD2E35B28F00423538 /* Then */; };
 		978CB3B12E35B33F00423538 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 978CB3B02E35B33F00423538 /* FSCalendar */; };
@@ -73,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				978CB3AB2E35B1FA00423538 /* Alamofire in Frameworks */,
+				975B50452E39E59C00E9AD8D /* KakaoSDK in Frameworks */,
 				978CB55D2E35BCDB00423538 /* SnapKit in Frameworks */,
 				978CB3B12E35B33F00423538 /* FSCalendar in Frameworks */,
 				978CB3AE2E35B28F00423538 /* Then in Frameworks */,
@@ -140,6 +142,7 @@
 				978CB3AD2E35B28F00423538 /* Then */,
 				978CB3B02E35B33F00423538 /* FSCalendar */,
 				978CB55C2E35BCDB00423538 /* SnapKit */,
+				975B50442E39E59C00E9AD8D /* KakaoSDK */,
 			);
 			productName = "DoorBox-FE";
 			productReference = 97207F972E333D6B005ED1B9 /* DoorBox-FE.app */;
@@ -228,6 +231,7 @@
 				978CB3AC2E35B28F00423538 /* XCRemoteSwiftPackageReference "Then" */,
 				978CB3AF2E35B33F00423538 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				978CB55B2E35BCDB00423538 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				975B50432E39E59C00E9AD8D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 97207F982E333D6B005ED1B9 /* Products */;
@@ -584,6 +588,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		975B50432E39E59C00E9AD8D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.24.6;
+			};
+		};
 		978CB3A92E35B1FA00423538 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -619,6 +631,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		975B50442E39E59C00E9AD8D /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 975B50432E39E59C00E9AD8D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
 		978CB3AA2E35B1FA00423538 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 978CB3A92E35B1FA00423538 /* XCRemoteSwiftPackageReference "Alamofire" */;
