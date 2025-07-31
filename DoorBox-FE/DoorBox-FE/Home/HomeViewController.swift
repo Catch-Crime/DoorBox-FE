@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
         
         view.photosTableView.delegate = self
         view.photosTableView.dataSource = self
+        
+        view.calendarButton.addTarget(self, action: #selector(calendarBtnTapped), for: .touchUpInside)
     }
     
     override func viewDidLoad() {
@@ -22,6 +24,10 @@ class HomeViewController: UIViewController {
         
     }
     
+    @objc private func calendarBtnTapped() {
+        let calendarVC = CalendarViewController()
+        self.navigationController?.pushViewController(calendarVC, animated: true)
+    }
     
 
 
