@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     
     private lazy var loginView = LoginView().then { view in
         view.backgroundColor = .white
-        view.kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginButtonTapped), for: .touchUpInside)
+        view.kakaoLoginButton.addTarget(self, action: #selector(kakaoLoginBtnTapped), for: .touchUpInside)
     }
     
     override func viewDidLoad() {
@@ -21,11 +21,12 @@ class LoginViewController: UIViewController {
         self.view = loginView
     }
     
-    @objc func kakaoLoginButtonTapped() {
-        let homeVC = HomeViewController()
+    @objc func kakaoLoginBtnTapped() {
         if let sceneDelegate = UIApplication.shared.connectedScenes
             .first(where: { $0.activationState == .foregroundActive })?.delegate as? SceneDelegate {
-            sceneDelegate.changeRootViewController(homeVC, animated: false)
+            let homeVC = HomeViewController()
+            let nav = UINavigationController(rootViewController: homeVC)
+            sceneDelegate.window?.rootViewController = nav
         }
     }
 }
