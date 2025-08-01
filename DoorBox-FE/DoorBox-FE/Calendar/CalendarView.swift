@@ -12,9 +12,16 @@ import SnapKit
 
 class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
     
+    var markedDates: [Date] = []
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addComponents()
+        
+        markedDates = [
+            Date(),
+            Calendar.current.date(byAdding: .day, value: 2, to: Date())!
+        ]
     }
     
     required init?(coder: NSCoder) {
@@ -51,8 +58,13 @@ class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
         calendar.appearance.headerDateFormat = "YYYY. MM"
         calendar.headerHeight = 50
         
+        calendar.appearance.eventDefaultColor = .red01
+        calendar.appearance.eventSelectionColor = .white
+
+        
         calendar.scope = .month
         calendar.setScope(.month, animated: false)
+        
     }
     
     var calendarHeightConstraint: Constraint?
@@ -65,6 +77,11 @@ class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
             self.layoutIfNeeded()
         }
     }
+    
+    // 캘린더 표시할 날짜 체크
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+         return markedDates.contains(where: { Calendar.current.isDate($0, inSameDayAs: date) }) ? 1 : 0
+     }
     
     lazy var selectedButton = UIButton().then { button in
         button.setTitle("선택한 날짜로 이동", for: .normal)
