@@ -18,6 +18,11 @@ class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
         super.init(frame: frame)
         addComponents()
         
+        // 초기 선택을 오늘 날짜로
+        DispatchQueue.main.async {
+            self.calendarView.select(Date())
+        }
+        
         markedDates = [
             Date(),
             Calendar.current.date(byAdding: .day, value: 2, to: Date())!
@@ -37,12 +42,12 @@ class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
         calendar.placeholderType = .none    // 이전, 이후 달 미리 표시
         calendar.locale = Locale(identifier: "ko_KR")
 
-        calendar.appearance.selectionColor = .grey01
+        calendar.appearance.selectionColor = .blue02
         calendar.appearance.titleDefaultColor = .blue02
         calendar.appearance.titleSelectionColor = .white
         
         // 오늘 날짜 설정
-        calendar.appearance.todayColor = .blue02
+        calendar.appearance.todayColor = .grey01
         calendar.appearance.todaySelectionColor = .blue02
         calendar.appearance.titleTodayColor = .white
         calendar.appearance.titleFont = .body
@@ -58,9 +63,9 @@ class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
         calendar.appearance.headerDateFormat = "YYYY. MM"
         calendar.headerHeight = 50
         
+        // 이벤트 마커 표시
         calendar.appearance.eventDefaultColor = .red01
         calendar.appearance.eventSelectionColor = .white
-
         
         calendar.scope = .month
         calendar.setScope(.month, animated: false)

@@ -13,6 +13,7 @@ class CalendarViewController: UIViewController {
     
     private lazy var calendarView = CalendarView().then { view in
         view.backgroundColor = .white
+        view.selectedButton.addTarget(self, action: #selector(selectedBtnTapped), for: .touchUpInside)
     }
     
     override func viewDidLoad() {
@@ -30,6 +31,10 @@ class CalendarViewController: UIViewController {
     }
     
     @objc private func backBtnTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func selectedBtnTapped() {
         navigationController?.popViewController(animated: true)
     }
 }
