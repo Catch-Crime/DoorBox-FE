@@ -25,16 +25,11 @@ class HomeView: UIView {
     
     lazy var topView = UIView()
     
-    lazy var profileButton = UIButton().then { button in
-        button.setImage(UIImage(named: "profile"), for: .normal)
-        button.layer.cornerRadius = 20
-        button.clipsToBounds = true
-        
-        button.imageView?.contentMode = .scaleAspectFill
-        button.imageView?.clipsToBounds = true
-        button.contentHorizontalAlignment = .fill
-        button.contentVerticalAlignment = .fill
-        button.isUserInteractionEnabled = true
+    lazy var profileImageView = UIImageView().then { imageView in
+        imageView.image = UIImage(named: "profile")
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 20
     }
     
     lazy var nicknameLabel = UILabel().then { label in
@@ -100,7 +95,8 @@ class HomeView: UIView {
     
     lazy var photosTableView = UITableView().then { tableView in
         tableView.backgroundColor = .clear
-        tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: "PhotosTableViewCell")
+        tableView.register(PhotoCell.self, forCellReuseIdentifier: "PhotoCell")
+        tableView.register(PhotoCellWithAccessory.self, forCellReuseIdentifier: "PhotoCellWithAccessory")
         tableView.separatorStyle = .none
     }
     
@@ -112,7 +108,7 @@ class HomeView: UIView {
     
     private func addComponents() {
         addSubview(topView)
-        topView.addSubview(profileButton)
+        topView.addSubview(profileImageView)
         topView.addSubview(nicknameLabel)
         topView.addSubview(calendarButton)
         topView.addSubview(settingButton)
@@ -123,26 +119,26 @@ class HomeView: UIView {
             make.height.equalTo(40)
         }
         
-        profileButton.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview()
+        profileImageView.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().inset(5)
             make.width.height.equalTo(40)
         }
         
         nicknameLabel.snp.makeConstraints { make in
-            make.centerY.equalTo(profileButton)
-            make.leading.equalTo(profileButton.snp.trailing).offset(18)
+            make.centerY.equalTo(profileImageView)
+            make.leading.equalTo(profileImageView.snp.trailing).offset(18)
         }
         
         calendarButton.snp.makeConstraints { make in
             make.trailing.equalTo(settingButton.snp.leading).offset(-10)
             make.width.height.equalTo(40)
-            make.centerY.equalTo(profileButton)
+            make.centerY.equalTo(profileImageView)
         }
         
         settingButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
             make.width.height.equalTo(40)
-            make.centerY.equalTo(profileButton)
+            make.centerY.equalTo(profileImageView)
         }
         
         addSubview(middleView)

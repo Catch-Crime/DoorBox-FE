@@ -27,7 +27,7 @@ class LoginView: UIView {
     lazy var kakaoLoginButton = UIButton().then { button in
         button.setTitle("카카오로 시작하기", for: .normal)
         button.setTitleColor(.blue02, for: .normal)
-        button.backgroundColor = .kakao
+        button.backgroundColor = .yellow01
         button.titleLabel?.font = .body2
         button.layer.cornerRadius = 20
         
