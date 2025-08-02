@@ -1,17 +1,17 @@
 //
-//  PhotosTableViewCell.swift
+//  PhotoCellWithAccessory.swift
 //  DoorBox-FE
 //
-//  Created by 김민지 on 7/28/25.
+//  Created by 김민지 on 8/2/25.
 //
 
 import UIKit
 import SnapKit
 import Then
 
-class PhotosTableViewCell: UITableViewCell {
+class PhotoCellWithAccessory: UITableViewCell {
     
-    static let identifier = "PhotosTableViewCell"
+    static let identifier = "PhotoCellWithAccessory"
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,23 +28,26 @@ class PhotosTableViewCell: UITableViewCell {
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "testImage")
+        imageView.layer.borderColor = UIColor.yellow01.cgColor
+        imageView.layer.borderWidth = 5
+    }
+    
+    lazy var warningImageView = UIImageView().then { imageView in
+        imageView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(paletteColors: [.black, .yellow])
+        imageView.image = UIImage(systemName: "exclamationmark.triangle")
+        imageView.tintColor = .blue02
     }
     
     // 시간, 성별, 연령, 감정
     lazy var timeLabel = settitleLabel(title: "TIME")
-    lazy var genderLabel = settitleLabel(title: "GENDER")
-    lazy var ageLabel = settitleLabel(title: "AGE")
-    lazy var emotionLabel = settitleLabel(title: "EMOTION")
-    
     lazy var timeValeLabel = setValueLabel(title: "12:34:56")
-    lazy var genderValueLabel = setValueLabel(title: "Male")
-    lazy var ageValueLabel = setValueLabel(title: "25")
-    lazy var emotionValueLabel = setValueLabel(title: "Happiness")
-    
     lazy var timeStackView = setStackView(spacing: 3)
-    lazy var genderStackView = setStackView(spacing: 3)
-    lazy var ageStackView = setStackView(spacing: 3)
-    lazy var emotionStackView = setStackView(spacing: 3)
+    
+    lazy var accessoryLabel = UILabel().then { label in
+        label.text = "Accessory detected"
+        label.font = .body2
+        label.textColor = .blue01
+    }
     
     lazy var infoView = UIView()
     
@@ -84,20 +87,19 @@ class PhotosTableViewCell: UITableViewCell {
             make.width.height.equalTo(100)
         }
         
+        addSubview(warningImageView)
+        warningImageView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(20)
+            make.trailing.equalToSuperview().inset(50)
+            make.width.height.equalTo(25)
+        }
+        
         timeStackView.addArrangedSubview(timeLabel)
         timeStackView.addArrangedSubview(timeValeLabel)
-        genderStackView.addArrangedSubview(genderLabel)
-        genderStackView.addArrangedSubview(genderValueLabel)
-        ageStackView.addArrangedSubview(ageLabel)
-        ageStackView.addArrangedSubview(ageValueLabel)
-        emotionStackView.addArrangedSubview(emotionLabel)
-        emotionStackView.addArrangedSubview(emotionValueLabel)
         
         addSubview(infoView)
         infoView.addSubview(timeStackView)
-        infoView.addSubview(genderStackView)
-        infoView.addSubview(ageStackView)
-        infoView.addSubview(emotionStackView)
+        infoView.addSubview(accessoryLabel)
         
         infoView.snp.makeConstraints { make in
             make.centerY.equalTo(photoImageView)
@@ -109,19 +111,9 @@ class PhotosTableViewCell: UITableViewCell {
             make.leading.equalToSuperview()
         }
         
-        genderStackView.snp.makeConstraints { make in
+        accessoryLabel.snp.makeConstraints { make in
             make.top.equalTo(timeStackView.snp.bottom).offset(7)
             make.leading.equalToSuperview()
-        }
-        
-        ageStackView.snp.makeConstraints { make in
-            make.top.equalTo(genderStackView)
-            make.leading.equalTo(genderStackView.snp.trailing).offset(20)
-        }
-        
-        emotionStackView.snp.makeConstraints { make in
-            make.top.equalTo(genderStackView)
-            make.leading.equalTo(ageStackView.snp.trailing).offset(20)
             make.bottom.equalToSuperview()
         }
         
