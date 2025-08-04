@@ -28,13 +28,13 @@ class PhotoCell: UITableViewCell {
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "testImage")
-        imageView.layer.borderColor = UIColor.red01.cgColor
+        imageView.layer.borderColor = UIColor.red.cgColor
         imageView.layer.borderWidth = 5
     }
     
     lazy var sirenImageView = UIImageView().then { imageView in
         imageView.image = UIImage(systemName: "light.beacon.max.fill")
-        imageView.tintColor = .red01
+        imageView.tintColor = .red
     }
     
     // 시간, 성별, 연령, 감정
