@@ -33,9 +33,10 @@ class PhotoCellWithAccessory: UITableViewCell {
     }
     
     lazy var warningImageView = UIImageView().then { imageView in
-        imageView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(paletteColors: [.black, .yellow])
-        imageView.image = UIImage(systemName: "exclamationmark.triangle")
+        imageView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(paletteColors: [.blue02, .yellow01])
+        imageView.image = UIImage(systemName: "exclamationmark.triangle.fill")
         imageView.tintColor = .blue02
+        // imageView.image = UIImage(named: "warning")
     }
     
     // 시간, 성별, 연령, 감정
