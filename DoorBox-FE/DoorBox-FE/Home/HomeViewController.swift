@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     private lazy var homeView = HomeView().then { view in
         view.backgroundColor = .white
         
@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
         view.photosTableView.dataSource = self
         
         view.calendarButton.addTarget(self, action: #selector(calendarBtnTapped), for: .touchUpInside)
+        view.settingButton.addTarget(self, action: #selector(settingBtnTapped), for: .touchUpInside)
     }
     
     override func viewDidLoad() {
@@ -27,6 +28,11 @@ class HomeViewController: UIViewController {
     @objc private func calendarBtnTapped() {
         let calendarVC = CalendarViewController()
         self.navigationController?.pushViewController(calendarVC, animated: true)
+    }
+    
+    @objc private func settingBtnTapped() {
+        let myPageVC = MyPageViewController()
+        self.navigationController?.pushViewController(myPageVC, animated: true)
     }
     
 

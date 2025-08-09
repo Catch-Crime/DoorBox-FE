@@ -47,7 +47,7 @@ class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
         calendar.appearance.titleSelectionColor = .white
         
         // 오늘 날짜 설정
-        calendar.appearance.todayColor = .grey01
+        calendar.appearance.todayColor = .gray01
         calendar.appearance.todaySelectionColor = .blue02
         calendar.appearance.titleTodayColor = .white
         calendar.appearance.titleFont = .body
