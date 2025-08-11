@@ -21,11 +21,19 @@ class PhotoDetailView: UIView {
     
     lazy var navigationBar = NavigationBar()
 
-    lazy var photoView = UIImageView().then { imageView in
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 10
-        imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "testImage")
+    lazy var photoScrollView = UIScrollView().then { scrollView in
+        scrollView.contentMode = .scaleAspectFill
+        scrollView.layer.cornerRadius = 10
+        scrollView.clipsToBounds = true
+        scrollView.isPagingEnabled = true
+    }
+    
+    lazy var photoPageControl = UIPageControl().then { control in
+        control.backgroundColor = .clear
+        control.pageIndicatorTintColor = .gray01
+        control.currentPageIndicatorTintColor = .blue02
+        control.currentPage = 0
+        control.numberOfPages = 3
     }
     
     private func addComponents() {
@@ -35,11 +43,17 @@ class PhotoDetailView: UIView {
             make.leading.trailing.equalToSuperview()
         }
         
-        addSubview(photoView)
-        photoView.snp.makeConstraints { make in
+        addSubview(photoScrollView)
+        photoScrollView.snp.makeConstraints { make in
             make.centerY.centerX.equalToSuperview()
             make.width.equalTo(300)
             make.height.equalTo(500)
+        }
+        
+        addSubview(photoPageControl)
+        photoPageControl.snp.makeConstraints { make in
+            make.top.equalTo(photoScrollView.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
         }
     }
 }
