@@ -21,6 +21,13 @@ class PhotoDetailView: UIView {
     
     lazy var navigationBar = NavigationBar()
 
+    lazy var warningLabel = UILabel().then { label in
+        label.text = "위험 가능성이 감지되었습니다"
+        label.textColor = .red
+        label.textAlignment = .center
+        label.font = .body
+    }
+    
     lazy var photoScrollView = UIScrollView().then { scrollView in
         scrollView.contentMode = .scaleAspectFill
         scrollView.layer.cornerRadius = 10
@@ -43,9 +50,16 @@ class PhotoDetailView: UIView {
             make.leading.trailing.equalToSuperview()
         }
         
+        addSubview(warningLabel)
+        warningLabel.snp.makeConstraints { make in
+            make.top.equalTo(navigationBar.snp.bottom).offset(16)
+            make.centerX.equalToSuperview()
+        }
+        
         addSubview(photoScrollView)
         photoScrollView.snp.makeConstraints { make in
-            make.centerY.centerX.equalToSuperview()
+            make.top.equalTo(warningLabel.snp.bottom).offset(30)
+            make.centerX.equalToSuperview()
             make.width.equalTo(300)
             make.height.equalTo(500)
         }
