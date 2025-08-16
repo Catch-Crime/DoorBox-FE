@@ -12,6 +12,7 @@ import SnapKit
 
 class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
     
+    var onDateSelected: ((Date) -> Void)?
     var markedDates: [Date] = []
     
     override init(frame: CGRect) {
@@ -120,4 +121,10 @@ class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
         }
             
     }
+}
+
+extension CalendarView {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+         onDateSelected?(date)
+     }
 }
