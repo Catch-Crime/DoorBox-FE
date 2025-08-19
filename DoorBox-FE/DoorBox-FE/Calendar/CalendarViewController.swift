@@ -12,18 +12,16 @@ import FSCalendar
 
 class CalendarViewController: UIViewController {
     
-    var selectedDateFromCalendar: String = ""
-    var onDateSelected: ((String) -> Void)?
+    var selectedDate: Date = Date()
+    var onDateSelected: ((Date) -> Void)?
     
     private lazy var calendarView = CalendarView().then { view in
         view.backgroundColor = .white
         view.selectedButton.addTarget(self, action: #selector(selectedBtnTapped), for: .touchUpInside)
         
         view.onDateSelected = { [weak self] date in
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MM / dd"
-            self!.selectedDateFromCalendar = formatter.string(from: date)
-            print("선택한 날짜: \(self!.selectedDateFromCalendar)")
+            self?.selectedDate = date
+            print("선택한 날짜: \(date)")
         }
     }
     
@@ -46,7 +44,7 @@ class CalendarViewController: UIViewController {
     }
     
     @objc private func selectedBtnTapped() {
-        onDateSelected?(selectedDateFromCalendar)
+        onDateSelected?(selectedDate) 
         navigationController?.popViewController(animated: true)
     }
 }

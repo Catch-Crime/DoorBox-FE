@@ -87,6 +87,17 @@ class HomeView: UIView {
         label.textAlignment = .center
         label.layer.cornerRadius = 8
         label.clipsToBounds = true
+        label.isHidden = true
+    }
+    
+    lazy var currentWeekdayLabel = UILabel().then { label in
+        label.text = "금"
+        label.backgroundColor = .blue02
+        label.font = .body2
+        label.textColor = .white
+        label.textAlignment = .center
+        label.layer.cornerRadius = 8
+        label.clipsToBounds = true
     }
     
     lazy var middleLineView = UIView().then { view in
@@ -146,6 +157,7 @@ class HomeView: UIView {
         middleView.addSubview(dateStackView)
         dateStackView.addArrangedSubview(dateLabel)
         dateStackView.addArrangedSubview(currentDateLabel)
+        dateStackView.addArrangedSubview(currentWeekdayLabel)
         middleView.addSubview(rightArrowButton)
         
         middleView.snp.makeConstraints { make in
@@ -167,6 +179,10 @@ class HomeView: UIView {
         
         currentDateLabel.snp.makeConstraints { make in
             make.width.equalTo(40)
+        }
+        
+        currentWeekdayLabel.snp.makeConstraints { make in
+            make.width.equalTo(30)
         }
         
         rightArrowButton.snp.makeConstraints { make in
