@@ -12,6 +12,7 @@ import SnapKit
 
 class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
     
+    var onDateSelected: ((Date) -> Void)?
     var markedDates: [Date] = []
     
     override init(frame: CGRect) {
@@ -47,7 +48,7 @@ class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
         calendar.appearance.titleSelectionColor = .white
         
         // 오늘 날짜 설정
-        calendar.appearance.todayColor = .grey01
+        calendar.appearance.todayColor = .gray01
         calendar.appearance.todaySelectionColor = .blue02
         calendar.appearance.titleTodayColor = .white
         calendar.appearance.titleFont = .body
@@ -120,4 +121,10 @@ class CalendarView: UIView, FSCalendarDelegate, FSCalendarDataSource {
         }
             
     }
+}
+
+extension CalendarView {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+         onDateSelected?(date)
+     }
 }

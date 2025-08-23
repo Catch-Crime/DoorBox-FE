@@ -56,7 +56,7 @@ class PhotoCell: UITableViewCell {
     lazy var infoView = UIView()
     
     lazy var underlineView = UIView().then { view in
-        view.backgroundColor = .grey01
+        view.backgroundColor = .gray01
     }
     
     func settitleLabel(title: String) -> UILabel {
