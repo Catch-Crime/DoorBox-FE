@@ -46,7 +46,7 @@ class PhotoCell: UITableViewCell {
     lazy var timeValeLabel = setValueLabel(title: "12:34:56")
     lazy var genderValueLabel = setValueLabel(title: "Male")
     lazy var ageValueLabel = setValueLabel(title: "25")
-    lazy var emotionValueLabel = setValueLabel(title: "Happiness")
+    lazy var emotionValueLabel = setValueLabel(title: "Anger")
     
     lazy var timeStackView = setStackView(spacing: 3)
     lazy var genderStackView = setStackView(spacing: 3)
