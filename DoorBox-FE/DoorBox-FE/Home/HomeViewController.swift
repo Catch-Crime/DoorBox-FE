@@ -9,7 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var selectedDate: Date = Date()   // 👉 이제 String 말고 Date로 저장
+    let accessoryCount = 2               // 액세서리 셀 몇 개 보여줄지
+    let items = HomeModel.dummy()        // 데이터는 한 번만 준비
+    var selectedDate: Date = Date()   
     private let formatter = DateFormatter()
     
     private lazy var homeView = HomeView().then { view in

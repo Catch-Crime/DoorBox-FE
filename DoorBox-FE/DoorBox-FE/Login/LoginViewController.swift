@@ -80,8 +80,10 @@ class LoginViewController: UIViewController {
              
              switch result {
              case .success(let response):
-                 print("accessToken is\n \(response.result?.accessToken ?? "")")
-                 print("refreshToken is\n \(response.result?.refreshToken ?? "")")
+                 print("access token is \(response.result!.accessToken)")
+                 print("refresh token is \(response.result!.refreshToken)")
+                 _ = KeychainService.add(key: K.Keys.accessToken, value: response.result!.accessToken)
+                 _ = KeychainService.add(key: K.Keys.refreshToken, value: response.result!.refreshToken)
                  
                  if let sceneDelegate = UIApplication.shared.connectedScenes
                      .first(where: { $0.activationState == .foregroundActive })?.delegate as? SceneDelegate {
@@ -92,6 +94,12 @@ class LoginViewController: UIViewController {
                  
              case .failure(let error):
                  print("로그인 실패: \(error.localizedDescription)")
+                 if let sceneDelegate = UIApplication.shared.connectedScenes
+                     .first(where: { $0.activationState == .foregroundActive })?.delegate as? SceneDelegate {
+                     let homeVC = HomeViewController()
+                     let nav = UINavigationController(rootViewController: homeVC)
+                     sceneDelegate.window?.rootViewController = nav
+                 }
              }
          }
      }
