@@ -15,7 +15,7 @@ class APIClient {
 extension APIClient {
     
     // Base URL 설정
-    private static let baseURL = "http://localhost:8080"
+    private static let baseURL = K.apiURL
     
     // 공통 헤더 생성 함수
     private static func getHeaders(withToken token: String? = nil) -> HTTPHeaders {
